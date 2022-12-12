@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Shake</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="shake.js"></script>
+</head>
+<body>
+ 
+    <div class="wrapper">
+        <h1>Shake Shake</h1>
+        <h2>Van links naar rechts en van rechts naar links</h2>
+        <button onclick="window.location.href='index.html';">En weer terug</button>
+    </div>
+
+<script type="text/javascript">
+window.onload = function() {
+  
+    if ( window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
+      window.DeviceMotionEvent.requestPermission()
+        .then(response => {
+          console.log(response);
+          if (response === 'granted') {
+            startShakeDetection();
+          } else {
+            console.log('DeviceMotion permissions not granted.')
+          }
+        })
+        .catch(e => {
+          console.error(e)
+        })
+    } else {
+      startShakeDetection();
+    }
+  
+    function startShakeDetection() {
+ 
+      //create a new instance of shake.js.
+      var myShakeEvent = new Shake({
+          threshold: 15
+      });
+
+      myShakeEvent.start();
+
+      // register a shake event
+      var btn = document.querySelector('.wrapper')
+      window.addEventListener('shake', shakeEventDidOccur, false);
+
+      //shake event callback
+      function shakeEventDidOccur () {
+
+          //put your own code here etc.
+          alert('Shake!');
+        
+        btn.classList.add("drop");
+      }
+    }
+};
+</script>
+
+</body>
+</html>

@@ -14,6 +14,19 @@
         <button onclick="window.location.href='shake.html';">Shake</button>
     </div>
 
+    <script>
+
+        window.matchMedia("(orientation: portrait)").addEventListener("change", e => {
+            var portrait = e.matches;
+            
+            if (portrait) {
+                alert("Wow vet cool je bent in portrait")
+            } else {
+                alert("Super gaaf je bent in landscape")
+            } 
+        });
+
+    </script>
 
 </body>
 </html>
