@@ -1,4 +1,7 @@
-
+body {
+    height: 85%;
+    border-bottom: 5px solid black;
+}
 
 .drop {
     animation-name: drop;
