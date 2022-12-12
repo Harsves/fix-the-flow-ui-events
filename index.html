@@ -9,9 +9,11 @@
 <script type="text/javascript" src="shake.js"></script>
 </head>
 <body>
-
-<h1>Shake Shake</h1>
-<h2>Van links naar rechts en van rechts naar links</h2>
+ 
+    <div class="wrapper">
+        <h1>Shake Shake</h1>
+        <h2>Van links naar rechts en van rechts naar links</h2>
+    </div>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -43,7 +45,7 @@ window.onload = function() {
       myShakeEvent.start();
 
       // register a shake event
-      var btn = document.querySelector('body')
+      var btn = document.querySelector('.wrapper')
       window.addEventListener('shake', shakeEventDidOccur, false);
 
       //shake event callback
