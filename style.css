@@ -7,7 +7,6 @@ body {
     animation-name: drop;
     animation-timing-function: ease-in-out;
     animation-duration: 5s;
-    animation-iteration-count: 1;
 }
 
 @keyframes drop {
