@@ -1,4 +1,11 @@
+* {
+    margin: 0;
+}
 
+body {
+    height: auto;
+    width: auto;
+}
 
 .drop {
     animation-name: drop;
