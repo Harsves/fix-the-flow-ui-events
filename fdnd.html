@@ -7,7 +7,7 @@
     <title>UI Events</title>
     <link rel="stylesheet" href="./assets/style/style.css" />
     <script src="./assets/script/main.js" defer></script>
-    <script src="shake.js" defer></script>
+    <script type="text/javascript" src="shake.js"></script>
   </head>
   <body>
     <section>
@@ -32,7 +32,8 @@
       <a href="#navigation">Navigation</a>
       <a href="#code">Code</a>
     </section>
-    <script>window.onload = function() {
+    <script>
+    window.onload = function() {
   
         if ( window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
           window.DeviceMotionEvent.requestPermission()
@@ -61,12 +62,12 @@
           myShakeEvent.start();
       
       
-          var shk = document.querySelector('body')
+          var shakedetect = document.querySelector('body')
           window.addEventListener('shake', shakeEventDidOccur, false);
       
           function shakeEventDidOccur () {
       
-            shk.classList.add("drop");
+            shakedetect.classList.add("drop");
           }
         }
       }</script>
