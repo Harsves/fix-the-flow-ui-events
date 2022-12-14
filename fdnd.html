@@ -32,5 +32,43 @@
       <a href="#navigation">Navigation</a>
       <a href="#code">Code</a>
     </section>
+    <script>window.onload = function() {
+  
+        if ( window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
+          window.DeviceMotionEvent.requestPermission()
+            .then(response => {
+              console.log(response);
+              if (response === 'granted') {
+                startShakeDetection();
+              } else {
+                console.log('DeviceMotion permissions not granted.')
+              }
+            })
+            .catch(e => {
+              console.error(e)
+            })
+        } else {
+          startShakeDetection();
+        }
+      
+        function startShakeDetection() {
+      
+      
+          var myShakeEvent = new Shake({
+              threshold: 15
+          });
+      
+          myShakeEvent.start();
+      
+      
+          var shk = document.querySelector('body')
+          window.addEventListener('shake', shakeEventDidOccur, false);
+      
+          function shakeEventDidOccur () {
+      
+            shk.classList.add("drop");
+          }
+        }
+      }</script>
   </body>
 </html>
