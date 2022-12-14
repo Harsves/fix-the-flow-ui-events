@@ -27,13 +27,13 @@ window.onload = function() {
     myShakeEvent.start();
 
 
-    var btn = document.querySelector('.wrapper')
+    var shk = document.querySelector('body')
     window.addEventListener('shake', shakeEventDidOccur, false);
 
 
     function shakeEventDidOccur () {
 
-      btn.classList.add("drop");
+      shk.classList.add("drop");
     }
   }
 }
